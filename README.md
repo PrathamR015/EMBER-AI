@@ -1,0 +1,125 @@
+# EMBER — Cardmember Servicing Platform
+> **Every Move Backed by Evidence & Reason**
+
+EMBER is an enterprise-grade Cardmember Servicing Platform engineered specifically for American Express. Built with a **7-Layer Agent Telemetry System**, deterministic **FastMCP Rules Engine**, **RAG Policy Vector Search**, and an **OpenRouter Multi-Model LLM Router**, EMBER enforces strict policy compliance, zero financial hallucination on fee waivers/limit calculations, cryptographic audit chaining, and JWT session locking.
+
+---
+
+## Technical Architecture
+
+```
+                                 ┌──────────────────────────────────────────┐
+                                 │   Vite React 18 Frontend (Amex Theme)    │
+                                 └────────────────────┬─────────────────────┘
+                                                      │ JWT Auth Header
+                                                      ▼
+                                 ┌──────────────────────────────────────────┐
+                                 │     FastAPI Backend (Port 8000)          │
+                                 └────────────────────┬─────────────────────┘
+                                                      │
+         ┌────────────────────────────────────────────┼────────────────────────────────────────────┐
+         │                                            │                                            │
+         ▼                                            ▼                                            ▼
+┌──────────────────┐                       ┌─────────────────────┐                      ┌──────────────────────┐
+│  FastMCP Engine  │                       │ OpenRouter Router   │                      │  MongoDB Atlas       │
+│  Deterministic   │                       │ Multi-Model LLMs    │                      │  Servicing DB        │
+└────────┬─────────┘                       └──────────┬──────────┘                      └──────────┬───────────┘
+         │                                            │                                            │
+         ▼                                            ▼                                            ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    7-LAYER AGENT TELEMETRY ENGINE                                        │
+│  Layer 1: Context Retrieval  •  Layer 2: RAG Policy Search  •  Layer 3: Deterministic Rules Engine    │
+│  Layer 4: Governor Gate      •  Layer 5: Idempotent Execution  •  Layer 6/7: Audit Hash Chaining         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Key Technical Specifications
+
+### 1. Authentic American Express Corporate Design
+- Designed strictly to match official American Express corporate design guidelines.
+- Signature **EMBER** square logo with blue text (`#0070d2`) and a 2px solid blue border on clean white surfaces.
+- Official tagline: *"Every Move Backed by Evidence & Reason"*.
+
+### 2. 7-Layer Agent Telemetry System
+Every servicing query undergoes sequential multi-layer evaluation with real-time UI layer flashing:
+- **Layer 1 (FastMCP Context Retrieval)**: Session-bound account context retrieval locked to JWT claims.
+- **Layer 2 (Policy RAG)**: Metadata pre-filter + vector embedding cosine similarity re-ranking over Amex policy documents (`documents/policy.md`).
+- **Layer 3 (Deterministic Rules Engine)**: Money math and eligibility verification calculated in Python outside LLMs.
+- **Layer 4 (Governor Compliance Gate)**: Independent redaction boundary and safety check.
+- **Layer 5 (Action Execution)**: Idempotent write execution with server-derived SHA-256 mutation keys.
+- **Layer 5 Alt (Rejection Boundary)**: Policy constraint rejection with clear rule explanation.
+- **Layer 5 Alt (Human Escalation Gateway)**: Automatic escalation for delinquent accounts requiring Underwriter approval.
+
+### 3. OpenRouter Multi-Model Router Engine
+Unified LLM engine operating 100% via **OpenRouter API** (`https://openrouter.ai/api/v1`):
+- **Intent Classifier**: `meta-llama/llama-3.3-70b-instruct`
+- **Governor Reasoning**: `meta-llama/llama-3.3-70b-instruct`
+- **Response Generation**: `meta-llama/llama-3.3-70b-instruct`
+- Dynamic token budget (1,200 tokens) with automatic stripping of CoT `<think>` tags and internal self-checks.
+
+### 4. Enterprise Admin Console (Human Console)
+- Comprehensive long-term audit trail for **every request made from every account** stored in MongoDB Atlas (`audit_log` collection).
+- **5 Live KPI Metric Cards**: Total Audit Records, Approval Rate (%), Policy Rejections, Human Escalation Count, Unique Audited Accounts.
+- **Multi-Factor Admin Filters**: Search box, Cardmember Account Selector, Status Filter (`APPROVED`, `REJECTED`, `ESCALATED`), and Action Filter (`FEE_REVERSAL`, `CREDIT_LIMIT_INCREASE`, `CARD_REPLACEMENT`, `GENERAL_INQUIRY`).
+- **17-Field Detailed Telemetry Inspection** including model names, prompt versions, latency (TTFT), token usage, costs, tool arguments payload, user ratings, evaluation scores, and cryptographic SHA-256 hashes.
+
+### 5. Golden Cardmember Demo Accounts
+Pre-seeded with authentic Indian customer accounts across all major Amex card tiers:
+1. `ACC-1001`: **Aarav Sharma** (*Amex Platinum®*)
+2. `ACC-1002`: **Ananya Iyer** (*Amex Gold®*)
+3. `ACC-1003`: **Rohan Patel** (*Amex Everyday®*)
+4. `ACC-1004`: **Vikramaditya Singhania** (*Amex Centurion® - Delinquent*)
+5. `ACC-1005`: **Priya Nair** (*Amex Green®*)
+6. `ACC-1006`: **Karan Kapoor** (*Amex Blue Cash®*)
+7. `ACC-1007`: **Diya Mehta** (*Amex Business Platinum®*)
+8. `ACC-1008`: **Rajesh Verma** (*Amex Delta Skymiles®*)
+9. `ACC-1009`: **Kavya Reddy** (*Amex Platinum®*)
+10. `ACC-1010`: **Aditya Roy** (*Amex Centurion®*)
+
+---
+
+## Tech Stack & Dependencies
+
+| Component | Framework / Technology | Purpose |
+| :--- | :--- | :--- |
+| **Backend API** | Python 3.13, FastAPI, Uvicorn | High-performance async REST backend |
+| **LLM Gateway** | OpenRouter API (`requests`) | Multi-model routing & generation |
+| **Rules Engine** | FastMCP Protocol / Custom MCP | Deterministic financial & policy logic |
+| **Database** | MongoDB Atlas (`pymongo`) | Persistent accounts, audit logs & vector chunks |
+| **Authentication** | PyJWT | JWT bearer session authentication |
+| **Frontend UI** | React 18, Vite | Component-driven UI dashboard |
+| **Design System** | Custom CSS3 Tokens | Official American Express corporate theme |
+
+---
+
+## Quick Start Guide
+
+### 1. Environment Configuration (`.env`)
+Create a `.env` file in the project root based on `.env.example`:
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.l9xnxmy.mongodb.net/?appName=Cluster0
+DB_NAME=ember_servicing_db
+USE_MOCK_MONGO=false
+```
+
+### 2. Database Seeding
+Seed accounts, long-time historical audit logs, and vector policy chunks into MongoDB:
+```bash
+python backend/database/seed_data.py
+```
+
+### 3. Start Backend Server
+```bash
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+### 4. Start Frontend UI
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Access the application at http://localhost:3000.
