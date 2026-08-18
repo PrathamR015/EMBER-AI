@@ -13,8 +13,7 @@ OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/ap
 # MongoDB Settings
 USE_MOCK_MONGO = os.getenv("USE_MOCK_MONGO", "false").lower() == "true"
 MONGO_URI = os.getenv(
-    "MONGO_URI",
-    "mongodb+srv://tonystark-123:evendeadiamthehero@cluster0.l9xnxmy.mongodb.net/?appName=Cluster0"
+    "MONGO_URI"
 )
 DB_NAME = os.getenv("DB_NAME", "ember_servicing_db")
 
