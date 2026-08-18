@@ -1,7 +1,22 @@
 # EMBER — Cardmember Servicing Platform
 > **Every Move Backed by Evidence & Reason**
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Python_3.13-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.13" />
+  <img src="https://img.shields.io/badge/FastAPI-005587?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React 18" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas" />
+  <br />
+  <img src="https://img.shields.io/badge/OpenRouter-6366F1?style=for-the-badge&logo=openai&logoColor=white" alt="OpenRouter" />
+  <img src="https://img.shields.io/badge/Llama_3.3_70B-0467DF?style=for-the-badge&logo=meta&logoColor=white" alt="Llama 3.3 70B" />
+  <img src="https://img.shields.io/badge/FastMCP_Engine-0070D2?style=for-the-badge&logo=anthropic&logoColor=white" alt="FastMCP Engine" />
+  <img src="https://img.shields.io/badge/7--Layer_Telemetry-0070D2?style=for-the-badge&logo=americanexpress&logoColor=white" alt="7-Layer Telemetry" />
+  <img src="https://img.shields.io/badge/JWT_Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT Auth" />
+</p>
+
 EMBER is an enterprise-grade Cardmember Servicing Platform engineered specifically for American Express. Built with a **7-Layer Agent Telemetry System**, deterministic **FastMCP Rules Engine**, **RAG Policy Vector Search**, and an **OpenRouter Multi-Model LLM Router**, EMBER enforces strict policy compliance, zero financial hallucination on fee waivers/limit calculations, cryptographic audit chaining, and JWT session locking.
+
 
 ---
 
